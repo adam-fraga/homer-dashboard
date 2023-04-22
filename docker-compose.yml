@@ -1,0 +1,16 @@
+version: "3"
+services:
+  homer:
+    image: b4bz/homer
+    container_name: homer
+    volumes:
+      - ./assets/:/www/assets
+    user: 1000:1000 # default
+    environment:
+      - INIT_ASSETS=1 # default
+    networks:
+      - authelia-net
+
+networks:
+  authelia-net:
+    external: true
